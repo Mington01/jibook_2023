@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습 3-2</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	<style>
+		body .todobox {
+			width: 610px;
+			height: auto;
+			margin: auto;
+			margin-top: 48px;
+			padding: 50px 50px;
+			background: #ffd700;
+			box-shadow: 5px 5px 5px gray;
+		}
+		
+		input[type=text], select {
+			width: 400px;
+			height: 37px;
+			padding: 10px 15px;
+			margin: 1px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		
+		.button {
+			width: 100px;
+			height: 37px;
+			background-color: #007FFF; /* Green */
+			border: none;
+			border-radius: 4px;
+			color: white;
+			padding: 5px 17px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 1px 5px;
+			cursor: pointer;
+		}
+		
+		ul {
+		  padding: 0;
+		}
+
+	</style>
+	
+	<script>
+		function addItem() {
+			
+			let todo = document.getElementById("item");
+			let list = document.getElementById("todolist");
+			let listitem = document.createElement("li");
+			
+			
+			/* listitem.className = "d-flex list-group-item list-group-item-action list-group-item-warning";*/		listitem.style.display = "flex";
+			listitem.style.alignItems = "center";
+			listitem.style.padding = "0.5rem 1rem";
+			listitem.style.marginBottom = "2px";
+			listitem.style.border = "1px solid rgba(0, 0, 0, 0.125)";
+			listitem.style.backgroundColor = "#fffacd";
+			listitem.style.color = "#212529";
+			listitem.style.borderRadius = "0";
+			listitem.style.cursor = "pointer";
+ 
+			let xbtn = document.createElement("button");
+			xbtn.style.color = "black";
+			xbtn.style.height = "20px";
+			xbtn.style.margin = "3px";
+			xbtn.className = "btn-close ms-auto";
+			
+			xbtn.onclick = function(e) {
+				let pnode = e.target.parentNode;
+				list.removeChild(pnode);
+			}
+			
+			listitem.innerText = todo.value;
+			listitem.appendChild(xbtn);
+			list.appendChild(listitem);
+			
+			todo.value = "";
+			todo.focus();
+		}
+	</script>
+
+</head>
+
+
+<body>
+	<div class="todobox">
+		<h2>My ToDo App</h2>
+		<hr>
+		<div class="input-group">
+			<input id="item" type="text" placeholder="할 일을 입력하세요..">
+			<button type="button" class="button" onclick="addItem()">할 일 추가</button>
+		</div>
+		<hr>
+		<ul id="todolist"></ul>
+		
+		
+	</div>
+</body>
+</html>
