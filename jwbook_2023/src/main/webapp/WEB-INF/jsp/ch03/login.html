@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Forms</title>
+	
+	<!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	<style>
+		.loginbox {
+			width:400px;
+			height:600px;
+			background-color: lightblue;
+			text-align: left;
+			line-height: 1.7;
+		}
+	</style>
+	
+	<script>
+
+    	/* document.write("<h2>여러분을 환영합니다!!</h2>") */
+
+    </script>
+		
+</head>
+
+<body>
+	<div class="loginbox container mt-5 border border-primary">
+		<h1 class="mt-3"><b>비밀번호 입력</b></h1>
+		<form>
+			Name : <br>
+			<input type="text" class="form-control border-success" name="username" placeholder="이름"><br>
+			Password : <br>
+			<input type="password" class="form-control border-success" name="password" placeholder="비밀번호"><br>
+			Email : <br>
+			<input type="text" class="form-control border-success" name="email"placeholder="이메일"><br>
+			University : <br>
+			<input type="text" class="form-control border-success" name="university" placeholder="대학교"><br>
+			<br>
+			<button type="submit" class="btn btn-primary" onclick="login()">로그인</button>
+			
+		</form>
+	</div>
+
+</body>
+
+</html>
