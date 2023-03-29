@@ -13,11 +13,20 @@
 			
 			let todo = document.getElementById("item");
 			let list = document.getElementById("todolist");
-			let listitem = document.createElementById("li");
-			listitem.className
-				= "doflex list-group-item list-group-item-action list-group-item-warning";
-			let xbtn = 
+			let listitem = document.createElement("li");
+			
+			listitem.className = "d-flex list-group-item list-group-item-action list-group-item-warning";
+			let xbtn = document.createElement("button");
+			
+			xbtn.className = "btn-close ms-auto";
+			
+			xbtn.onclick = function(e) {
+				let pnode = e.target.parentNode;
+				list.removeChild(pnode);
+			}
+			
 			listitem.innerText = todo.value;
+			listitem.appendChild(xbtn);
 			list.appendChild(listitem);
 			
 			todo.value = "";
@@ -32,9 +41,9 @@
 	<div class="container bg-warning shadow mx-auto mt-5 p-5 w-75">
 		<h2>My ToDo App</h2>
 		<hr>
-		<div>
+		<div class="input-group">
 			<input id="item" class="form-control" type="text" placeholder="할 일을 입력하세요..">
-			<button type="button" class="btn btn-primary mt-3" onclick="addItem()">할 일 추가</button>
+			<button type="button" class="btn btn-primary" onclick="addItem()">할 일 추가</button>
 		</div>
 		<hr>
 		<ul id="todolist" class="list-group"></ul>
