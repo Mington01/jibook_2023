@@ -13,7 +13,7 @@
         	var author = document.getElementById("author").value;
         	var email = document.getElementById("email").value;
             var title = document.getElementById("title").value;
-            var password = document.getElementById("password").value;
+            var password = document.getElementById("gPassword").value;
             var content = document.getElementById("content").value;
             
             if (author === "") {
@@ -42,7 +42,7 @@
         	document.getElementById("author").value = "";
         	document.getElementById("email").value = "";
             document.getElementById("title").value = "";
-            document.getElementById("password").value = "";
+            document.getElementById("gPassword").value = "";
             document.getElementById("content").value = "";
         }
     </script>
@@ -109,7 +109,7 @@
 			        <td><input class="border-0" type="text" id="email" name="email"></td>
 			    </tr>
 			    <tr>
-			        <th>제 목</th>
+			        <th>제  목</th>
 			        <td><input class="border-0" type="text" id="title" name="title"></td>
 			    </tr>
 			    <tr>
@@ -123,7 +123,7 @@
 	        <div class="button-container container border-0">
 		        <input class="btn btn-primary" type="submit" value="입력" onclick="/jwbook_2023/guestBookControl?action=insert">
 		        <input class="btn btn-primary" type="button" value="취소" onclick="clearForm()">
-		        <input class="btn btn-primary" type="button" value="목록" onclick="/jwbook_2023/guestBookControl?action=list">
+		        <input class="btn btn-primary" type="button" value="목록" onclick="location.href='/jwbook_2023/guestBookControl?action=list'">
 		    </div>
 	    </form>
 	</div>

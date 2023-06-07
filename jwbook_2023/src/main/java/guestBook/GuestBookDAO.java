@@ -69,18 +69,6 @@ public class GuestBookDAO {
         }
     }
     
-    public void delGuest(int id) throws SQLException {
-    	Connection conn = DBUtil.getConnection();
-    	String sql = "delete from news where id=?";
-    	PreparedStatement pstmt = conn.prepareStatement(sql);
-    	
-    	try(conn; pstmt) {
-    		if(pstmt.executeUpdate() == 0) {
-    			throw new SQLException("DB에러");
-    		}
-    	}
-    }
-    
     public GuestbookModel getGuestbookById(int id) {
         GuestbookModel guestbook = null;
         Connection conn = null;
@@ -115,10 +103,14 @@ public class GuestBookDAO {
 
         return guestbook;
     }
+    
+//    업데이트기
 
-    public void update(GuestbookModel guestbook) {
-        Connection conn = null;
+//    public GuestbookModel update(GuestbookModel guestbook) {
+    public Boolean update(GuestbookModel guestbook) {  
+    	Connection conn = null;
         PreparedStatement pstmt = null;
+        Boolean result = null;
 
         try {
             conn = DBUtil.getConnection();
@@ -133,11 +125,15 @@ public class GuestBookDAO {
             pstmt.setInt(6, guestbook.getId());
 
             pstmt.executeUpdate();
+            result = true;
         } catch (SQLException e) {
+        	result = false;
             e.printStackTrace();
         } finally {
             DBUtil.close(pstmt);
             DBUtil.close(conn);
         }
+        
+        return result;
     }
 }

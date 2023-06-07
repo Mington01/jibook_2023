@@ -13,7 +13,7 @@
         	var author = document.getElementById("author").value;
         	var email = document.getElementById("email").value;
             var title = document.getElementById("title").value;
-            var password = document.getElementById("password").value;
+            var password = document.getElementById("gPassword").value;
             var content = document.getElementById("content").value;
             
             if (author === "") {
@@ -28,7 +28,7 @@
                 alert("제목을 입력해주세요.");
                 return false;
             }
-            if (password === "") {
+            if (password.trim() === "") {
                 alert("비밀번호를 입력해주세요.");
                 return false;
             }
@@ -102,16 +102,19 @@
 	    
 	    <form action="/jwbook_2023/guestBookControl?action=update" method="post" onsubmit="return validateForm()">
 	        <table class="table table-bordered table-hover">
-			    <tr>
+<tr>
+			        <th>번호 </th>
+			        <td><input class="border-0" type="text" id="id" name="id" required value="${guestbook.id}"></td>
+			    </tr>
 			        <th>작성자</th>
-			        <td><input class="border-0" type="text" id="author" name="author" required value="${guestbook.author}"></td>
+			        <td><input class="border-0" type="text" id="author" name="author" required value=" ${guestbook.author}"></td>
 			    </tr>
 			    <tr>
 			    	<th>이메일</th>
 			        <td><input class="border-0" type="text" id="email" name="email" required value="${guestbook.email}"></td>
 			    </tr>
 			    <tr>
-			        <th>제 목</th>
+			        <th>제  목</th>
 			        <td><input class="border-0" type="text" id="title" name="title" required value="${guestbook.title}"></td>
 			    </tr>
 			    <tr>
@@ -123,9 +126,12 @@
 	        <textarea id="content" name="content" rows="5" cols="30" required>${guestbook.content}</textarea><br><br>
 	        
 	        <div class="button-container container border-0">
-		        <input class="btn btn-success" type="submit" value="수정" onclick="/jwbook_2023/guestBookControl?action=update">
+	        
+		        <!--  <input class="btn btn-success" type="submit" value="수정" onclick="/jwbook_2023/guestBookControl?action=update&id=${guestbook.id}">-->
+		        <input class="btn btn-success" type="submit" value="수정" onclick="location.href='/jwbook_2023/guestBookControl?action=update'">
+		    
 		        <input class="btn btn-success" type="button" value="삭제" onclick="clearForm()">
-		        <input class="btn btn-success" type="button" value="목록" onclick="/jwbook_2023/guestBookControl">
+		        <input class="btn btn-success" type="button" value="목록" onclick="location.href='/jwbook_2023/guestBookControl?action=list'">
 		    </div>
 	    </form>
 	</div>

@@ -30,6 +30,9 @@ public class GuestBookController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String action = request.getParameter("action");
+        
+        System.out.println("액션값: "+action + "-----");
+        
         String view = "";
 
         if (action == null) {
@@ -49,6 +52,8 @@ public class GuestBookController extends HttpServlet {
             case "update":
                 view = update(request, response);
                 break;
+            
+             
         }
 
         getServletContext().getRequestDispatcher("/GuestBook/" + view).forward(request, response);
@@ -80,13 +85,18 @@ public class GuestBookController extends HttpServlet {
     }
 
     private String update(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        GuestbookModel guestbook = dao.getGuestbookById(id);
-        
+    	
+    	Boolean result;
+    	
+    	int id = Integer.parseInt(request.getParameter("id"));
+    	System.out.println("guestbook아이: " +id);
+    	GuestbookModel guestbook = dao.getGuestbookById(id);
+            	
         if (guestbook != null) {
             try {
                 BeanUtils.populate(guestbook, request.getParameterMap());
-                dao.update(guestbook);
+//                dao.update(guestbook);
+                result = dao.update(guestbook);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -36,11 +36,11 @@
 	        <div class="list">
 	            <table class="table table-hover table-bordered">
 	                <tr class="text-center">
-	                    <th>번호</th>
+	                    <th>번  호</th>
 	                    <th>작성자</th>
 	                    <th>이메일</th>
 	                    <th>작성일</th>
-	                    <th>제목</th>
+	                    <th>제  목</th>
 	                </tr>
 	                <c:forEach items="${guestbooks}" var="guestbook">
 	                    <tr>
